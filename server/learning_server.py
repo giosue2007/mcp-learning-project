@@ -62,5 +62,18 @@ def get_topic_details(topic_id: str) -> dict:
     }
 
 
+@mcp.resource("topics://catalog")
+def get_topic_catalog() -> str:
+    """
+    Read-only catalog: the id and title of every available topic,
+    as a JSON string.
+    """
+    catalog = [
+        {"id": topic["id"], "title": topic["title"]}
+        for topic in load_topics()
+    ]
+    return json.dumps(catalog, indent=2)
+
+
 if __name__ == "__main__":
     mcp.run()
