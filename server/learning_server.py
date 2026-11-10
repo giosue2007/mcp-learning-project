@@ -44,5 +44,23 @@ def search_topics(query: str) -> list[dict]:
     return results
 
 
+@mcp.tool
+def get_topic_details(topic_id: str) -> dict:
+    """
+    Return the full information of one topic, found by its id.
+    If the id does not exist, return an error message and the
+    list of valid ids.
+    """
+    topic_id = str(topic_id).strip().lower()
+    topics = load_topics()
+    for topic in topics:
+        if topic["id"] == topic_id:
+            return topic
+    return {
+        "error": f"Topic '{topic_id}' not found.",
+        "available_ids": [topic["id"] for topic in topics],
+    }
+
+
 if __name__ == "__main__":
     mcp.run()
