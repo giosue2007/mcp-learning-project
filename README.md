@@ -43,3 +43,38 @@ Run `python3 client/mcp_client.py`. Sample output:
     3. search_topics('decorators'): [{'id': 'python-decorators', ...}]
     6. Invalid inputs:
        get_topic_details('unknown'): Topic 'unknown' not found.
+
+## Third-Party MCP Server Review
+
+**Server reviewed:** Filesystem MCP Server
+(`@modelcontextprotocol/server-filesystem`), a reference server from
+the official `modelcontextprotocol/servers` repository. I reviewed
+its README and configuration examples; I did not install it.
+
+**What it does:** lets an AI application read, write, search and
+organize files inside directories chosen by the user.
+
+**Local or remote:** local. The client starts it as a subprocess
+(`npx` or `docker run -i`) and talks to it over stdio. No network
+endpoint is exposed.
+
+**Tools exposed:** `read_text_file`, `read_media_file`,
+`read_multiple_files`, `write_file`, `edit_file`,
+`create_directory`, `list_directory`, `list_directory_with_sizes`,
+`move_file`, `search_files`, `directory_tree`, `get_file_info`,
+`list_allowed_directories`.
+
+**Permissions / credentials:** no API key or account. The only
+permission is file-system access: the allowed directories are given
+as command-line arguments (or as MCP roots by the client). Every
+operation is restricted to those directories.
+
+**Risk:** `write_file`, `edit_file` and `move_file` can overwrite or
+move files without asking. If I allowed a broad folder (for example
+my home directory), a wrong or manipulated request from the AI could
+damage personal files or read private ones.
+
+**Safety measure:** allow only one small project folder, never the
+home directory. With Docker, mount it read-only (`ro`) when the AI
+only needs to read, for example only this project's `data/` folder.
+Use `edit_file` with `dryRun` to preview changes before writing.
