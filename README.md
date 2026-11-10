@@ -33,3 +33,13 @@ and a smaller, easier to test server.
 2. Install the dependencies: `pip install -r requirements.txt`
 
 The server uses the stdio transport: after the FastMCP banner it waits silently for a client. Stop it with Ctrl + C.
+
+## Testing the Server
+
+Run `python3 client/mcp_client.py`. Sample output:
+
+    1. Server started and connected.
+    2. Tools: ['search_topics', 'get_topic_details']
+    3. search_topics('decorators'): [{'id': 'python-decorators', ...}]
+    6. Invalid inputs:
+       get_topic_details('unknown'): Topic 'unknown' not found.
