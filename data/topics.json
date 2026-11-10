@@ -1,5 +1,90 @@
 [
-  {"id": "decorators", "title": "Python decorators"},
-  {"id": "list_comprehensions", "title": "Python list comprehensions"},
-  {"id": "http_status_codes", "title": "HTTP status codes"}
+  {
+    "id": "python-decorators",
+    "title": "Python Decorators",
+    "summary": "Functions that wrap another function to add behavior without changing its code.",
+    "prerequisites": [
+      "Functions",
+      "Scope"
+    ],
+    "key_concepts": [
+      "Higher-order functions",
+      "Wrapper functions",
+      "The @ syntax"
+    ],
+    "common_mistakes": [
+      "Forgetting to return the wrapper function"
+    ],
+    "practice_idea": "Create a decorator that logs function calls."
+  },
+  {
+    "id": "list-comprehensions",
+    "title": "Python List Comprehensions",
+    "summary": "A short syntax to build a new list from an iterable in one line.",
+    "prerequisites": [
+      "Lists",
+      "For loops"
+    ],
+    "key_concepts": [
+      "Expression",
+      "Iteration",
+      "Filtering with if"
+    ],
+    "common_mistakes": [
+      "Using parentheses instead of square brackets"
+    ],
+    "practice_idea": "Build the list of squares of the even numbers from 1 to 10."
+  },
+  {
+    "id": "http-status-codes",
+    "title": "HTTP Status Codes",
+    "summary": "Three-digit numbers a server returns to describe the result of a request.",
+    "prerequisites": [
+      "HTTP requests"
+    ],
+    "key_concepts": [
+      "2xx success",
+      "4xx client errors",
+      "5xx server errors"
+    ],
+    "common_mistakes": [
+      "Returning 200 for an error"
+    ],
+    "practice_idea": "Write a function that returns the class of a status code."
+  },
+  {
+    "id": "python-dictionaries",
+    "title": "Python Dictionaries",
+    "summary": "Collections that store values under unique keys for fast lookup.",
+    "prerequisites": [
+      "Variables",
+      "Lists"
+    ],
+    "key_concepts": [
+      "Key-value pairs",
+      "get()",
+      "Looping with items()"
+    ],
+    "common_mistakes": [
+      "Reading a missing key with [] instead of get()"
+    ],
+    "practice_idea": "Count how many times each word appears in a sentence."
+  },
+  {
+    "id": "python-exceptions",
+    "title": "Python Exceptions",
+    "summary": "Errors raised at runtime that can be caught and handled with try/except.",
+    "prerequisites": [
+      "Functions"
+    ],
+    "key_concepts": [
+      "try / except",
+      "Raising errors",
+      "finally"
+    ],
+    "common_mistakes": [
+      "Catching every exception with a bare except"
+    ],
+    "practice_idea": "Ask for a number and handle the case where it is not valid."
+  }
 ]
