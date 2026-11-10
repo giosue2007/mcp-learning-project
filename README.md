@@ -27,3 +27,9 @@ in its answer.
 needs. Fewer capabilities means fewer ways to misuse it (for
 example, a learning server should read topics, not delete files),
 and a smaller, easier to test server.
+
+## How to Run the Server
+1. Create and activate a virtual environment: `python3 -m venv .venv` then `source .venv/bin/activate`
+2. Install the dependencies: `pip install -r requirements.txt`
+
+The server uses the stdio transport: after the FastMCP banner it waits silently for a client. Stop it with Ctrl + C.
